@@ -1,0 +1,10 @@
+OBJECTID,Facility_N,Type,Owner,County,Sub_County,Division,Location,Sub_Locati,Constituen,Nearest_To,Latitude,Longitude,Contact
+1, CDF Kiriari Dispensary,Dispensary,Ministry of Health,Embu,Manyatta,Manyatta,Ruguru,Ruguru,MANYATTA,Kiriari -market,-0.3994,37.47605, 0722 123456
+2, St Jude's Huruma Community Health Services,Medical Clinic,Private Practice - Unspecified,Nairobi,Mathare,Huruma,Huruma,Huruma,MATHARE,Kariobangi Market,-1.26174,36.87765,020 1234567
+3,12 Engineers,Dispensary,Ministry of Health,Kiambu,Thika West,Thika West,Thika West,Thika West,JUJA,Thika,-1.07354,37.14413,0703 456789
+4,3Kl Maternity & Nursing Home,Nursing Home,Private Practice - Clinical Officer,Kajiado,Kajiado North,Ongata Rongai,Gataka,Gataka,KAJIADO NORTH,Ongata Ronga,-1.3757,36.72277,0722 987654
+5,8Th Street Clinic,Medical Clinic,Private Enterprise (Institution),Kajiado,Kajiado North,Isinya,Isinya,Isinya Township,KAJIADO NORTH,Isinya,-1.41187,36.50854,041 1234567
+6,AAR Adams Health Centre,Medical Clinic,Private Practice - General Practitioner,Nairobi,Kibra,Woodly,Woodly,Woodly,KIBRA,Adams,-1.30047,36.73162,0709 123456
+7,AAR City Centre Clinic,Medical Clinic,Private Enterprise (Institution),Nairobi,Starehe,Starehe,Central Business District,Central Business District,STAREHE,Nairobi,-1.28443,36.82135,709 234567
+8,AAR Clinic Sarit Centre (Westlands),Medical Clinic,Private Enterprise (Institution),Nairobi,Westlands,Parklands,Parklands,Upper Parklands,WESTLANDS,Nairobi,-1.2617,36.80211,0709 345678
+9,AAR Eldoret,Medical Clinic,Private Practice - General Practitioner,Uasin Gishu,Eldoret West,Turbo,Turbo,Turbo,ELDORET NORTH,Eldoret,0.51676,35.27422,0709 456789

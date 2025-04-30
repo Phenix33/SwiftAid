@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Search</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link href="styles.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=getLocation" async defer></script>
+</head>
+<body style="display: flex; flex-direction: column; justify-content:center; align-items: center; height: 100vh; overflow: hidden; background: url('background.jpg') center/cover no-repeat;">
+  
+  <p style="margin-bottom: 10px; font-size: 1.2em; text-align: center;">
+    Let's get you the help you need—quickly and nearby! Allow location access to find the closest facility.
+  </p>
+
+  <form class="bar">
+    <input type="search" name="search" pattern=".*\S.*" required autocomplete="off">
+    <button class="search-btn" type="submit">
+      <span>Search</span>
+    </button>
+  </form>
+
+  <p id="location-status" style="margin-top: 10px; font-size: 1em; color: #444;">Detecting location...</p>
+  <div id="hospitals" style="margin-top: 10px; font-size: 1em; color: #222;"></div>
+
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function(position) {
+            let lat = position.coords.latitude;
+            let lon = position.coords.longitude;
+            document.getElementById("location-status").innerText = "Your location: " + lat + ", " + lon;
+            
+            // Send coordinates to PHP backend
+            fetch("find_nearest_hospital.php?lat=" + lat + "&lon=" + lon)
+              .then(response => response.json())
+              .then(data => {
+                if (data.length > 0) {
+                  let hospitalList = data.map(hospital => `<li>${hospital.name} - ${hospital.distance} km away</li>`).join("");
+                  document.getElementById("hospitals").innerHTML = "<ul>" + hospitalList + "</ul>";
+                } else {
+                  document.getElementById("hospitals").innerText = "No hospitals found nearby.";
+                }
+              })
+              .catch(error => console.error("Error:", error));
+          },
+          function(error) {
+            document.getElementById("location-status").innerText = "Location access denied. Please enable GPS.";
+          }
+        );
+      } else {
+        document.getElementById("location-status").innerText = "Geolocation is not supported by this browser.";
+      }
+    }
+    getLocation();
+  </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign Up Form </title>
+    <link href="https://fivebooster.com/assets/img/favicon.ico" rel="shortcut icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validateDOB() {
+            var dob = document.getElementById('dob').value;
+            var today = new Date().toISOString().split('T')[0];
+            if (dob > today) {
+                alert('Date of Birth cannot be in the future.');
+                document.getElementById('dob').value = '';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-center text-muted">Fill out this form</h3>
+        <h2><b>Create Account</b></h2>
+        <form action="https://customer.fivebooster.com/register.php/?systpl=antler" method="post" name="orderfrm" class="comments-form">
+            <div class="mergecolor"><small>Personal Information</small></div>
+            <div class="row mb-4">
+                <div class="col-md-6 position-relative">
+                    <label for="firstname"><i class="fas fa-user-tie"></i> First Name</label>
+                    <input type="text" name="firstname" id="firstname" placeholder="First Name" required class="form-control">
+                </div>
+                <div class="col-md-6 position-relative">
+                    <label for="inputLastName"><i class="fas fa-user-tie"></i> Last Name</label>
+                    <input type="text" name="lastname" id="inputLastName" placeholder="Last Name" required class="form-control">
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-6 position-relative">
+                    <label for="dob"><i class="fas fa-calendar"></i> Date of Birth</label>
+                    <input type="date" name="dob" id="dob" required class="form-control" onchange="validateDOB()">
+                </div>
+                <div class="col-md-6 position-relative">
+                    <label for="gender"><i class="fas fa-venus-mars"></i> Gender</label>
+                    <select name="gender" id="gender" class="form-control" required>
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-6 position-relative">
+                    <label for="bloodgroup"><i class="fas fa-tint"></i> Blood Group</label>
+                    <select name="bloodgroup" id="bloodgroup" class="form-control" required>
+                        <option value="">Select Blood Group</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                </div>
+                <div class="col-md-6 position-relative">
+                    <label for="allergies"><i class="fas fa-allergies"></i> Allergies</label>
+                    <input type="text" name="allergies" id="allergies" placeholder="Specify Allergies" class="form-control">
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-6 position-relative">
+                    <label for="medications"><i class="fas fa-pills"></i> Current Medications</label>
+                    <input type="text" name="medications" id="medications" placeholder="Current Medications" class="form-control">
+                </div>
+                <div class="col-md-6 position-relative">
+                    <label for="conditions"><i class="fas fa-notes-medical"></i> Existing Medical Conditions</label>
+                    <input type="text" name="conditions" id="conditions" placeholder="Existing Medical Conditions" class="form-control">
+                </div>
+            </div>
+            <div class="mergecolor"><small>Emergency Contact</small></div>
+            <div class="row mb-4">
+                <div class="col-md-6 position-relative">
+                    <label for="emergencyname"><i class="fas fa-user"></i> Emergency Contact Name</label>
+                    <input type="text" name="emergencyname" id="emergencyname" placeholder="Emergency Contact Name" required class="form-control">
+                </div>
+                <div class="col-md-6 position-relative">
+                    <label for="relationship"><i class="fas fa-users"></i> Relationship</label>
+                    <select name="relationship" id="relationship" class="form-control" required>
+                        <option value="">Select Relationship</option>
+                        <option value="Parent">Parent</option>
+                        <option value="Sibling">Sibling</option>
+                        <option value="Spouse">Spouse</option>
+                        <option value="Guardian">Guardian</option>
+                        <option value="Friend">Friend</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-6 position-relative">
+                    <label for="emergencycontact"><i class="fas fa-phone-alt"></i> Emergency Contact Number</label>
+                    <input type="tel" name="emergencycontact" id="emergencycontact" placeholder="Emergency Contact Number" required class="form-control">
+                </div>
+            </div>
+            <button type="submit" value="Submit" class="btn btn-custom mb-1 w-100">Register</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
